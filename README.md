@@ -1,504 +1,435 @@
-# Perception Shift - A Secure React Game with Supabase Backend
-
-A modern web-based puzzle game built with React, TypeScript, and Supabase, featuring advanced security implementations and real-time multiplayer capabilities.
-
-## 🎮 About the Project
-
-Perception Shift is an interactive puzzle game where players navigate through rooms, collect shards, and compete on global leaderboards. The project demonstrates modern web development practices with a focus on security, scalability, and user experience.
-
-## 🏗️ Architecture Overview
-
-### Frontend Stack
-- **React 18** with TypeScript for type-safe development
-- **Vite** for fast development and optimized builds
-- **Tailwind CSS** with custom design system and semantic tokens
-- **Zustand** for efficient state management
-- **React Router** for client-side routing
-- **Lucide React** for consistent iconography
-
-### Backend Infrastructure
-- **Supabase** as the primary backend service
-- **PostgreSQL** database with Row Level Security (RLS)
-- **Supabase Edge Functions** for serverless API endpoints
-- **Resend** for secure email delivery
-- **Real-time subscriptions** for live updates
-
-## 🔐 Security Implementation
-
-This project implements enterprise-grade security measures:
-
-### Database Security
-- **Row Level Security (RLS)** on all tables
-- **User-specific data isolation** - users can only access their own data
-- **Sanitized leaderboard** - no PII exposure (usernames instead of emails)
-- **Rate limiting** for verification codes (3 attempts per 5 minutes)
-- **Hashed verification codes** stored in database
-- **Search path hardening** for all database functions
-
-### API Security
-- **CORS restrictions** to project domain only
-- **JWT authentication** for protected endpoints
-- **Input validation** and sanitization
-- **Anti-abuse measures** for game mechanics
-- **Secure headers** implementation
-
-### Authentication Flow
-- **Email verification** with time-limited codes
-- **Passwordless authentication** system
-- **Session management** with auto-refresh
-- **User enumeration protection**
-
-## 🗃️ Database Schema
-
-### Core Tables
-- `profiles` - User profile information
-- `user_game_data` - Game statistics and power-ups
-- `user_inventory` - Player's collected items
-- `leaderboard` - Global rankings (sanitized)
-- `verification_codes` - Email verification system
-- `verification_attempts` - Rate limiting data
-
-### Security Features
-- All tables have RLS policies
-- Foreign key constraints for data integrity
-- Automated triggers for data consistency
-- Indexed columns for performance
-
-## 🚀 Key Features
-
-### Game Mechanics
-- **Multi-room progression** with increasing difficulty
-- **Shard collection system** with anti-inflation measures
-- **Time-based bonuses** for efficient completion
-- **Power-up system** with temporary effects
-- **Global leaderboards** with ranking system
-
-### User Experience
-- **Responsive design** for all screen sizes
-- **Dark/light theme support** with system preference detection
-- **Real-time updates** for leaderboards and game state
-- **Smooth animations** and transitions
-- **Accessible UI** with proper ARIA labels
-
-### Administrative Features
-- **Comprehensive logging** for debugging
-- **Performance monitoring** through analytics
-- **Security scanning** with automated reports
-- **Database health checks** and optimization
-
-## 🛠️ Development Process
-
-### Initial Setup
-1. **Project scaffolding** with Vite + React + TypeScript
-2. **Tailwind CSS integration** with custom design system
-3. **Supabase project creation** and configuration
-4. **Database schema design** with security-first approach
-
-### Security Implementation
-1. **Comprehensive security audit** identifying vulnerabilities
-2. **RLS policy implementation** for all data access
-3. **Edge function hardening** with rate limiting
-4. **CORS and authentication** security measures
-5. **Anti-abuse systems** for game mechanics
-
-### Feature Development
-1. **Core game mechanics** implementation
-2. **Authentication system** with email verification
-3. **Leaderboard system** with real-time updates
-4. **User interface** with responsive design
-5. **State management** with Zustand
-
-### Quality Assurance
-1. **TypeScript integration** for type safety
-2. **ESLint configuration** for code quality
-3. **Security linting** with automated checks
-4. **Performance optimization** and monitoring
-5. **Cross-browser testing** and compatibility
-
-## 📁 Project Structure
-
-```
-src/
-├── components/           # React components
-│   ├── ui/              # Reusable UI components (shadcn/ui)
-│   ├── game/            # Game-specific components
-│   └── auth/            # Authentication components
-├── pages/               # Route components
-├── stores/              # Zustand stores
-├── lib/                 # Utility functions
-├── hooks/               # Custom React hooks
-└── integrations/        # Third-party integrations
-    └── supabase/        # Supabase client and types
-
-supabase/
-├── functions/           # Edge functions
-│   ├── send-verification-code/
-│   ├── verify-code/
-│   └── complete-room/
-└── migrations/          # Database migrations
-```
-
-## 🚀 Deployment
-
-### Environment Setup
-The application uses Supabase for backend services with the following configuration:
-- **Project ID**: `ihvnriqsrdhayysfcywm`
-- **Environment**: Production-ready with security hardening
-- **CDN**: Global edge network for optimal performance
+🎴 My Card Museum!!! 💸 — A Roblox Live-Economy Collecting Game
+A bright, goofy, mobile-first Roblox experience where players buy cards, mount them on glowing pedestals inside a museum, watch live price swings, and sell for profit. Built with Roblox Lua and a server-authoritative economy.
 
-### Edge Functions
-Three serverless functions handle backend operations:
-1. **send-verification-code**: Email delivery with rate limiting
-2. **verify-code**: User verification with security measures
-3. **complete-room**: Game completion with anti-abuse protection
+🎮 About the Project
+My Card Museum!!! turns collecting into a flex-worthy museum sim:
 
-## 🔧 Local Development
 
-```bash
-# Clone the repository
-git clone [repository-url]
-cd perception-shift
+Rotate through featured shop offers on a timer.
 
-# Install dependencies
-npm install
 
-# Start development server
-npm run dev
+Build your Inventory & Collection, then mount favorites on pedestals.
 
-# Build for production
-npm run build
-```
 
-## 🧪 Testing
+Price Ticker nudges values up/down with rare Mutation Events.
 
-The project includes comprehensive testing strategies:
-- **Type checking** with TypeScript
-- **Linting** with ESLint
-- **Security scanning** with Supabase linter
-- **Manual testing** across browsers and devices
 
-## 📊 Performance Considerations
+A Sell Counter buys your cards at current market price.
 
-- **Code splitting** for optimal bundle sizes
-- **Lazy loading** for non-critical components
-- **Database indexing** for query optimization
-- **CDN delivery** for static assets
-- **Real-time optimizations** for live features
 
-## 🔮 Future Enhancements
+Style: punchy, 2D, meme-friendly, with ZIXLE STUDIOS branding.
 
-- **Mobile app** development with React Native
-- **Advanced analytics** and user behavior tracking
-- **Social features** like friend systems and chat
-- **Tournament system** with scheduled competitions
-- **Achievement system** with unlockable rewards
 
-## 🤝 Contributing
 
-This project demonstrates modern web development practices and can serve as a reference for:
-- Secure authentication implementations
-- Real-time game mechanics
-- Supabase integration patterns
-- TypeScript best practices
-- Security-first development
+🏗️ Architecture Overview
+Client (StarterPlayerScripts)
 
----
 
-## Original Lovable Project Info
+GameClient.client.lua
+Single entry for UI (Inventory/Collection/Shop/Sell), Money HUD (green↑/red↓), focus/blur, toasts, controller support.
 
-**Lovable Project URL**: https://lovable.dev/projects/8409cf31-86a0-4af3-9f6a-f9e97eeb6792
 
-### Technologies Used
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-- Supabase
+ScreenGui layout
+Top bar tabs, modal framework, shop list renderer with template cloning, collection grid.
 
-### How to Edit
-- **Use Lovable**: Visit the project URL and start prompting
-- **Use your IDE**: Clone repo and push changes (auto-syncs to Lovable)
-- **GitHub Codespaces**: Available for cloud development
 
-### Deployment
-Open Lovable and click Share → Publish for instant deployment.
+Server (ServerScriptService & Workspace)
 
-**Built with ❤️ using Lovable, React, and Supabase**
 
-🎴 My Card Museum!!! 💸 — Official README
+ServerCore.server.lua
+Bootstraps DataStores, loads/creates player profiles, publishes MoneyChanged / InventoryChanged.
 
-A development journal + technical overview for classmates, recruiters, and future me.
 
-0) One-liner
+ShopNPC.server.lua (Workspace > shop)
+ProximityPrompt → Open Shop. Validates buys, stock, and funds.
 
-Buy goofy-to-exotic cards, mount your flex on glowing pedestals, ride live price swings, and sell smart to build the ultimate Card Museum.
 
-1) What this repo/project is
+SellNPC.server.lua (Workspace > sell)
+ProximityPrompt → Open Sell. Validates payload and pays out.
 
-A Roblox experience built around a live-economy collecting loop:
 
-Shop rotates featured cards on a timer.
+Pedestal.server.lua
+Authoritative mount/unmount, prevents dupes, replicates museum state.
 
-Inventory / Collection shows what you own and what you’ve mounted.
 
-Sell Counter buys your cards at current market price.
+Shared (ReplicatedStorage)
 
-Pedestals in the museum let you showcase any owned card globally.
 
-Price Ticker nudges prices up/down with occasional rare mutations (events) that spike or dip subsets of cards.
+SharedCore.lua
+Canonical paths (Remotes, Modules), TitleCase, currency/format helpers, debounces, rate limits.
 
-The experience is intentionally bright, meme-y, and readable—think mobile-first clarity with punchy UI and playful names (Gritty Gremlin, Void Phantom).
 
-2) Quick start (developer)
+Modules
+CardDefinitions.lua, Mutations.lua (event recipes), PriceRules.lua (drift ranges).
 
-Open the place in Roblox Studio (Play → Current Client).
 
-Verify these service folders exist and are populated:
+Networking Contract
 
-ReplicatedStorage/Remotes
 
-ReplicatedStorage/Modules (CardDefinitions, Mutations, Shared bootstrap)
+OpenShopUI          : RemoteEvent
 
-StarterPlayerScripts (UI clients, Money HUD, Admin panel)
 
-ServerScriptService (ShopGateway, PriceTicker, ProfilesBootstrap, PedestalRemotes, Commerce gateway)
+BuyFromShop         : RemoteFunction (cardId, qty) -> {ok, err}
 
-Make sure each NPC (Shop, Sell) has a ProximityPrompt under a visible part (e.g., Head or an InteractPart).
 
-Press Play; you should see Inventory and Collection buttons at the top. Approach the Card Merchant to open the shop; approach the Card Buyer to sell.
+SellCards           : RemoteFunction (payload)     -> {ok, cashDelta}
 
-(Owner-only) Open the Admin gear button (top-right) to grant cash/cards for testing.
 
-3) High-level architecture
-Core scripts (the “six” pillars you asked for)
+MountOnPedestal     : RemoteFunction (cardId, pedId) -> ok
 
-ServerScriptService/ServerCore.server.lua
-Boot order, profile init, MoneyChanged/InventoryChanged relays, data saves.
 
-Workspace/ShopNPC.server.lua
-Binds ProximityPrompt → opens Shop UI, validates requests, calls buy server endpoints.
+UnmountFromPedestal : RemoteFunction (pedId) -> ok
 
-Workspace/SellNPC.server.lua
-Binds ProximityPrompt → opens Sell UI, validates sell requests & payouts.
 
-ServerScriptService/Pedestal.server.lua
-Mount/Unmount server authority; replicates museum displays; anti-dupe checks.
+MoneyChanged        : RemoteEvent (balance, delta)
 
-ReplicatedStorage/SharedCore.lua
-Canonical WaitForChild bootstrap (paths to Remotes/Modules), string utils (TitleCase), currency and rate-limit helpers.
 
-StarterPlayerScripts/GameClient.client.lua
-UI hub (Inventory/Collection/Shop/Sell), Money HUD flash (green↑/red↓), admin panel (owner-only), toasts, focus/blur rules.
+InventoryChanged    : RemoteEvent (snapshot|patch)
 
-Under the hood there are gateway helpers (ShopGateway, CommerceGateway, PriceTicker, ProfilesBootstrap). If you need to collapse them into the six, you can embed them (namespaced) inside the above pillars without changing the public API.
 
-Remotes contract
+PriceChanged        : RemoteEvent ([{cardId, newPrice, delta}])
 
-Remotes/OpenShopUI : RemoteEvent
 
-Remotes/BuyFromShop : RemoteFunction (cardId, qty) → {ok, err}
 
-Remotes/SellCards : RemoteFunction (payload) → {ok, cashDelta}
+🔐 Security & Anti-Exploit
 
-Remotes/MoneyChanged : RemoteEvent (balance, delta)
 
-Remotes/InventoryChanged : RemoteEvent (snapshot or patch)
+Server-authoritative economy — cash, stock, inventory, and pedestal state mutate only on the server.
 
-Remotes/PriceChanged : RemoteEvent (array of {cardId, newPrice, delta})
 
-Remotes/MountOnPedestal : RemoteFunction (cardId, pedId) → ok
+Validation on every transaction (card existence, stock, price snapshot, funds, qty caps).
 
-Remotes/UnmountFromPedestal : RemoteFunction (pedId) → ok
 
-Data model (simplified)
-Profile = {
-  cash = number,
-  inventory = { [cardId]=count, ... },
-  mounted = { [pedId]=cardId, ... },
-  seen = { lastShopRefresh = t, ... },
+Rate-limits & debounces (per-player cool-downs on buy/sell/mount).
+
+
+Sanity caps (max qty per click, per offer; price clamps; cash floors).
+
+
+Batched price updates (reduces replication spam & “queue exhausted” issues).
+
+
+Owner-only Admin Panel (command gating by Player.UserId allowlist).
+
+
+
+🗃️ Data Model
+Profile (per player)
+{
+  cash = number,                            -- current balance
+  inventory = { [cardId]=count, ... },      -- owned counts
+  mounted = { [pedId]=cardId, ... },        -- museum placements
+  seen = { lastShopRefresh = number }       -- UX helpers
 }
 
-CardDefinition = {
+CardDefinition
+{
   id = "crystal_moth",
   displayName = "Crystal Moth",
-  tier = "Common" | "Rare" | "Epic" | "Exotic" | "Mythic",
-  basePrice = number,
-  rarityWeight = number,   -- for shop weighting
-  thumb = "rbxassetid://...",
+  tier = "Common"|"Rare"|"Epic"|"Exotic"|"Mythic",
+  basePrice = 120,
+  rarityWeight = 30,                         -- shop weighting
+  thumb = "rbxassetid://<image>"
 }
 
-4) Game loop
+ShopOffer
+{
+  cardId = "ember_bug",
+  price = 55,
+  stock = 6,
+  expiresAt = os.time() + 240
+}
 
-Browse Shop (3-5 featured cards, refreshes on a timer).
 
-Buy with cash (server checks stock/funds).
+🚀 Key Features
+Game Mechanics
 
-Mount prized cards on pedestals (flex your museum).
 
-Wait / watch prices (ticker & mutations).
+Featured Shop with countdown, stock, and per-item Buy (+/– qty).
 
-Sell at a profit (or take the L 😅).
 
-Re-invest into rarer Exotics/Mythics.
+Sell Counter that summarizes and pays at live price.
 
-5) Feature list (implemented)
 
-Top-bar Inventory / Collection UX (grid with rarity chips & art).
+Museum Pedestals (mount/unmount with server checks).
 
-Card Merchant (Shop) and Card Buyer (Sell) NPCs with prompts.
 
-Rotating Shop Offers (stock, price, countdown).
+Price Ticker + Mutation Events (e.g., “Nebula Surge” boosts Exotics).
 
-Buy/Sell with full server validation and Money HUD feedback.
 
-Pedestal mount/unmount, replicated museum displays.
+Rarity tiers (Common → Rare → Epic → Exotic → Mythic).
 
-Price Ticker + Mutation Events (rare spikes/dips).
 
-Admin Panel (owner-only): give cash, grant card, refresh shop, wipe inv.
+Brainrot-friendly names (Gritty Gremlin, Void Phantom, Prismatic Oni).
 
-Name cleanup (no underscores; Title Case everywhere).
 
-Branding: game = “🎴 My Card Museum!!! 💸”, thumbnail in bright 2D style; shirt text ZIXLE STUDIOS.
+UX / UI
 
-6) Day-to-day dev log (reality, not fluff)
-Day 1 — Skeleton & prompts
 
-Placed Shop and Sell NPCs; added ProximityPrompt.
+Top-bar tabs (Inventory / Collection) always visible.
 
-First pass ShopNPC.server.lua / SellNPC.server.lua to fire OpenShopUI.
 
-✅ Win: prompts appear; UI hub loads.
+Money HUD with green flash on gain, red on spend.
 
-❌ Pain: “No ProximityPrompt found” → fixed search path & part parenting.
 
-Day 2 — UI boot & cleanup
+Readable, mobile-first hit areas and labels.
 
-Enabled Inventory/Collection top bar.
 
-Hid demo bubbles; moved Trade/Gamepass aside.
+Goofy, bright 2D vibe; thumbnails per card; title-case labels (no underscores).
 
-Fixed screen dimming not restoring on modal close.
 
-Day 3 — Remotes & modules backbone
+Tiny line-chart detail & 💲 sparkles in the Shop banner for flavor.
 
-Created ReplicatedStorage/Remotes + Modules (CardDefinitions, Mutations, Shared).
 
-Killed infinite yield waits by standard SharedCore boot.
+Admin (owner-only)
 
-Day 4 — Shop offers & rendering
 
-Implemented ShopGateway; “No cards available” → populated CardDefinitions with starter set.
+Give cash, grant card, refresh offers, wipe inventory (dev/testing).
 
-Title-case display names; thumbnails slotted.
 
-Day 5 — Buy pipeline (server auth)
 
-Swapped brittle OnServerInvoke misuse with proper RemoteFunction/RemoteEvent split.
+🛠️ Development Process (what we actually did)
+Initial Setup
 
-Money debits → inventory increments → stock decrements → HUD flash.
 
-Day 6 — Sell pipeline
+Created Remotes, Modules, and the six core scripts (see structure below).
 
-Sell UI summary + server cash credit.
 
-Fixed double-fire & dupe edge cases with per-player cooldown.
+Added ProximityPrompt to shop and sell NPCs.
 
-Day 7 — Money, HUD, admin
 
-Introduced starting cash for new profiles.
+Built UI shell (tabs + modal) & SafeBoot (consistent WaitForChild paths).
 
-HUD green/red flash on deltas.
 
-Small owner panel (cash + grant card + refresh shop).
+Feature Development
 
-Day 8 — Pedestals v1
 
-Mount/unmount with E; replicated museum state.
+Shop rotation + offer rendering; fixed “no cards available” by populating CardDefinitions.
 
-Resolved GetPedestalHoverInfo infinite yield by publishing ped remotes at boot.
 
-Day 9 — Price ticker & mutations
+Buy flow: switched from OnServerInvoke misuse to a proper RemoteFunction.
 
-Background price drift; occasional Mutation Event (e.g., “Nebula Surge”).
 
-Addressed event spam by coalescing updates and throttling signals.
+Sell flow: server validation, debounced; HUD delta flashes.
 
-Day 10 — Catalog & tiers polish
 
-Added Exotic/Mythic pool and fun names (brainrot-friendly 😜).
+Pedestals: authoritative mount/unmount + replication.
 
-Weighted shop selection by rarity.
 
-Day 11 — Branding + art + blueprint
+PriceTicker: drift with occasional Mutations; batched PriceChanged.
 
-Finalized name 🎴 My Card Museum!!! 💸.
 
-Produced bright 2D thumbnail; added tiny $ line chart detail.
+Admin Panel: gated actions for owner.
 
-Drafted blueprint & interior/exterior notes for the museum vibe.
 
-7) Notable bugs & how they were fixed
+Quality & Stability
 
-“No ProximityPrompt found under X” → ensure InteractPart/Head contains a Prompt; search with FindFirstChildWhichIsA("ProximityPrompt", true).
 
-Infinite yield on WaitForChild("SellCards"/"GetPedState") → create remotes at boot; centralize paths in SharedCore.
+Killed infinite yield waits with centralized SharedCore.
 
-OnServerInvoke misuse → move to RemoteFunction for requests, RemoteEvent for broadcasts.
 
-“Queue exhausted” spam → throttle price events; batch to arrays per tick.
+De-duplicated remote names and hardened paths.
 
-Underscore names → TitleCase util in the display layer.
 
-8) Design system (UI/UX)
+Event throttling to stop “invocation queue exhausted”.
 
-Mobile-first tappable hit areas; consistent padding & rounded corners.
 
-16px/20px/28px type scale; strong contrast; status colors only for deltas.
 
-Modal open/close restores camera & blur every time.
+📁 Project Structure
+ReplicatedStorage/
+├── Remotes/
+│   ├── OpenShopUI                (RemoteEvent)
+│   ├── BuyFromShop               (RemoteFunction)
+│   ├── SellCards                 (RemoteFunction)
+│   ├── MoneyChanged              (RemoteEvent)
+│   ├── InventoryChanged          (RemoteEvent)
+│   ├── PriceChanged              (RemoteEvent)
+│   ├── MountOnPedestal           (RemoteFunction)
+│   └── UnmountFromPedestal       (RemoteFunction)
+└── Modules/
+    ├── SharedCore.lua
+    ├── CardDefinitions.lua
+    ├── Mutations.lua
+    └── PriceRules.lua
 
-Inventory grid supports thumbnails + rarity chip + price tag.
+ServerScriptService/
+├── ServerCore.server.lua
+├── PriceTicker.server.lua        (*can be inlined into ServerCore if you want only 1 server script*)
+└── ProfilesBootstrap.server.lua  (*optional; can be namespaced in ServerCore*)
 
-9) Performance & safety
+Workspace/
+├── shop/
+│   ├── Head (with ProximityPrompt)
+│   └── ShopNPC.server.lua
+└── sell/
+    ├── Head (with ProximityPrompt)
+    └── SellNPC.server.lua
+└── Museum/
+    └── Pedestals... + Pedestal.server.lua
 
-Server-authoritative buys/sells/mounts.
+StarterPlayer/
+└── StarterPlayerScripts/
+    └── GameClient.client.lua     (UI hub + HUD + admin panel)
 
-Per-player rate limit on transactions.
 
-No client-trust for cash/inventory mutations.
+Six-script layout (as requested):
 
-Batching price updates to reduce replication churn.
 
-10) Monetization (non-pay-to-win)
+ServerCore.server.lua, 2) ShopNPC.server.lua, 3) SellNPC.server.lua, 4) Pedestal.server.lua, 5) SharedCore.lua, 6) GameClient.client.lua.
+Any helpers (e.g., price ticker, profiles) can be embedded/namespaced inside these.
 
-Optional Gamepasses (extra pedestal slot, cosmetic trails, museum skin).
 
-Booster: temporary +% sell price for commons only (caps applied).
 
-Avoid selling raw power. Cosmetics + convenience only.
 
-11) Credits
+▶️ Run / Test
 
-Design/Direction: you (ZIXLE Studios energy 💥).
 
-Engineering assistance: ChatGPT (architecture, debugging, copy).
+Open in Roblox Studio → Play (Current Client).
 
-In-game art direction: bright 2D, goofy, readable; Slap Battles-style clarity as a north star.
 
-12) Appendix — Card tiers & sample names
+Confirm both NPCs show prompts (E to interact).
 
-Common: Ember Bug, Crystal Moth, Gritty Gremlin, Leaf Sprite
 
-Rare: Neon Koi, Byte Bat, Chrome Toad
+Use Inventory / Collection buttons at top; open Shop to see offers.
 
-Epic: Starbound Lynx, Plasma Warden
 
-Exotic: Void Phantom, Glitch Wisp, Prismatic Oni
+Buy → watch Money HUD turn red with spend; Inventory increments.
 
-Mythic: Cosmic Raptor, Aurora Seraph, Null Hydra
 
-Final note
+Sell → HUD flashes green; balance updates.
 
-This README documents how the project actually came together—from wiring prompts and stomping infinite-yield errors to a functioning live-economy loop with pedestals, shop rotation, mutations, and owner tools. If you’re reviewing this for coursework or hiring: the emphasis is server authority, predictable UI states, and clean contracts between client and server.
+
+Walk to a Pedestal and press E to mount a card.
+
+
+(Owner) Click the gear icon to open Admin Controls.
+
+
+
+🧪 Testing Checklist
+
+
+Buy with insufficient cash → error toast, no mutation.
+
+
+Buy beyond stock → clamped/blocked, stock consistent for all clients.
+
+
+Sell an unowned card → rejected.
+
+
+Mount card already mounted elsewhere → rejected.
+
+
+Multiple rapid clicks → rate-limited, no dupes.
+
+
+Ticker pushes multiple updates → batched PriceChanged, no queue spam.
+
+
+
+📊 Performance Considerations
+
+
+Batched replication for price updates & inventory patches.
+
+
+Minimal Remote traffic per interaction; server does heavy work.
+
+
+UI renders via template cloning (no excessive Instance churn).
+
+
+Clean teardown on modal close (unblur, disconnect connections).
+
+
+
+💸 Monetization (not pay-to-win)
+
+
+Cosmetic museum skins, trails, and pedestal auras.
+
+
+Boosters (short-term buff for commons only, hard-capped).
+
+
+No raw stat advantages in competitive selling.
+
+
+
+🗓️ Dev Timeline (condensed)
+
+
+Day 1–2: Prompts + UI shell; fixed dim overlay.
+
+
+Day 3–4: Remotes/Modules backbone; Shop offers render.
+
+
+Day 5–6: Buy/Sell pipelines hardened; Money HUD.
+
+
+Day 7–8: Pedestals; anti-dupe; remote hygiene.
+
+
+Day 9: PriceTicker + Mutation Events (throttled).
+
+
+Day 10–11: Rarity polish, Exotic/Mythic pool, branding & thumbnail.
+
+
+
+🎨 Content & Branding
+
+
+Title: 🎴 My Card Museum!!! 💸
+
+
+Tone: goofy, colorful, meme-friendly, highly readable.
+
+
+Shirt/brand: ZIXLE STUDIOS
+
+
+Card vibes: “Crystal Moth”, “Gritty Gremlin”, “Void Phantom (Exotic)”, “Aurora Seraph (Mythic)”.
+
+
+
+🔮 Roadmap
+
+
+Global leaderboards for net worth and museum prestige.
+
+
+Trading & auctions with escrow and anti-scam flows.
+
+
+Blueprint museum editor (skins, room unlocks).
+
+
+Limited-time events & seasonal card sets.
+
+
+Quests/Achievements with cosmetic rewards.
+
+
+Cross-server museum visits and curated tours.
+
+
+
+🤝 Credits
+
+
+Game Owner/Direction: You — ZIXLE Studios.
+
+
+Systems/Architecture: this README & implementation notes authored with ChatGPT.
+
+
+Visual Direction: bright 2D, crisp icons, big hit targets, stream-friendly.
+
+
+
+TL;DR
+Buy → Mount → Watch Prices → Sell → Flex the Museum.
+Server-auth, anti-exploit, and built to scale—with a silly, catchy vibe that invites players to tap “Play” and stick around.
